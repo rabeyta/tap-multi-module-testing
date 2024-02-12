@@ -1,0 +1,3 @@
+rootProject.name = 'tap-multi-module-testing'
+include 'tanzu-java-web-app-1'
+include 'tanzu-java-web-app-2'

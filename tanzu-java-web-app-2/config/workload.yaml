@@ -1,0 +1,29 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: tanzu-java-web-app-2
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/language: java
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/auto-configure-actuators: "true"
+    app.kubernetes.io/part-of: tanzu-java-web-app-2
+spec:
+  build:
+    env:
+      - name: BP_JVM_VERSION
+        value: "17"
+      - name: BP_GRADLE_BUILT_MODULE
+        value: "tanzu-java-web-app-2"
+
+  params:
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
+    - name: gitops_ssh_secret
+      value: github-ssh-dev
+  source:
+    git:
+      url: ssh://git@github.com/rabeyta/tanzu-java-web-app-gradle.git
+      ref:
+        branch: main
