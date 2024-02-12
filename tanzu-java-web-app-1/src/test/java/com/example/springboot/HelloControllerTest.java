@@ -20,6 +20,8 @@ class HelloControllerTest {
 
     @Test
     void index() throws Exception {
+        System.out.println("inside module 1");
+
         mockMvc
                 .perform(get("/"))
                 .andExpect(status().isOk())
