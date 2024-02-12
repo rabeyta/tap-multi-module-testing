@@ -24,6 +24,6 @@ spec:
       value: github-ssh-dev
   source:
     git:
-      url: ssh://git@github.com/rabeyta/tanzu-java-web-app-gradle.git
+      url: ssh://git@github.com/rabeyta/tap-multi-module-testing.git
       ref:
         branch: main
