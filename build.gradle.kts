@@ -4,10 +4,11 @@ plugins {
 
 affectedModuleDetector {
     baseDir = "${project.rootDir}"
-    pathsAffectingAllModules = setOf("buildSrc")
+    pathsAffectingAllModules = setOf("gradle")
     logFilename = "output.log"
-    logFolder = "${project.rootDir}/output"
-    compareFrom = "PreviousCommit" //default is PreviousCommit
+    logFolder = "${project.rootDir}/affectedModuleDetector"
+    specifiedBranch = "main"
+    compareFrom = "SpecifiedBranchCommit" //default is PreviousCommit
     ignoredFiles = setOf(".*\\.md", ".*\\.txt", ".*README")
     includeUncommitted = true
 }
