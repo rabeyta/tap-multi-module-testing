@@ -3,7 +3,7 @@ kind: Workload
 metadata:
   name: tanzu-java-web-app-1
   labels:
-    apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/workload-type: web-deliverable
     apps.tanzu.vmware.com/language: java
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
@@ -21,7 +21,9 @@ spec:
       value:
         autoscaling.knative.dev/minScale: "1"
     - name: gitops_ssh_secret
-      value: github-ssh-dev
+      value: github-ssh
+    - name: iterate
+      value: "true"
   source:
     git:
       url: ssh://git@github.com/rabeyta/tap-multi-module-testing.git
