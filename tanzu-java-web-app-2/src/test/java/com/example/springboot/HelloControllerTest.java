@@ -20,6 +20,7 @@ class HelloControllerTest {
 
     @Test
     void index() throws Exception {
+        System.out.println("testing");
         mockMvc
                 .perform(get("/"))
                 .andExpect(status().isOk())

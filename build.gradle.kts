@@ -8,7 +8,7 @@ affectedModuleDetector {
     logFilename = "output.log"
     logFolder = "${project.rootDir}/affectedModuleDetector"
     specifiedBranch = "main"
-    compareFrom = "SpecifiedBranchCommit" //default is PreviousCommit
+    compareFrom = "SpecifiedBranchCommitMergeBase" //default is PreviousCommit
     ignoredFiles = setOf(".*\\.md", ".*\\.txt", ".*README")
     includeUncommitted = true
 }
