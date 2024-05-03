@@ -1,3 +1,5 @@
+import com.dropbox.affectedmoduledetector.AffectedModuleConfiguration
+
 plugins {
     id("com.dropbox.affectedmoduledetector") version "0.3.1"
 }
@@ -11,8 +13,10 @@ affectedModuleDetector {
     compareFrom = "SpecifiedBranchCommitMergeBase" //default is PreviousCommit
     ignoredFiles = setOf(".*\\.md", ".*\\.txt", ".*README")
     includeUncommitted = true
+    customTasks = setOf(
+            AffectedModuleConfiguration.CustomTask("printProjectsImpacted", "printProjectName", "print name")
+    )
 }
-
 tasks.register("printProjectName") {
     doLast {
         println(project.name)
