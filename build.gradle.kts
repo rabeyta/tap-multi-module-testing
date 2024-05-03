@@ -9,7 +9,7 @@ affectedModuleDetector {
     logFolder = "${project.rootDir}/output"
     compareFrom = "PreviousCommit" //default is PreviousCommit
     ignoredFiles = setOf(".*\\.md", ".*\\.txt", ".*README")
-    includeUncommitted = true
+    includeUncommitted = false
 }
 
 tasks.register("printProjectName") {
