@@ -4,7 +4,7 @@ plugins {
 
 affectedModuleDetector {
     baseDir = "${project.rootDir}"
-    pathsAffectingAllModules = setOf("")
+    pathsAffectingAllModules = setOf("gradle")
     logFilename = "output.log"
     logFolder = "${project.rootDir}/affectedModuleDetector"
     specifiedBranch = "main"
