@@ -34,3 +34,9 @@ tasks.withType<Test> {
 tasks.named<Jar>("jar") {
     enabled = false
 }
+
+tasks.register("printProjectName") {
+    doLast {
+        println("app-1")
+    }
+}

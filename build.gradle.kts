@@ -17,11 +17,6 @@ affectedModuleDetector {
             AffectedModuleConfiguration.CustomTask("printProjectsImpacted", "printProjectName", "print name")
     )
 }
-tasks.register("printProjectName") {
-    doLast {
-        println(project.name)
-    }
-}
 
 // Register Custom Task with root project
 tasks.register<AffectedTask>("affected") {
