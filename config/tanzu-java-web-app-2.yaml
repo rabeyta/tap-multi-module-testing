@@ -22,7 +22,7 @@ spec:
       value:
         autoscaling.knative.dev/minScale: "1"
     - name: gitops_ssh_secret
-      value: github-ssh
+      value: github-basic-auth
     - name: iterate
       value: "true"
     - name: testing_pipeline_params
@@ -30,6 +30,6 @@ spec:
         module: "tanzu-java-web-app-2"
   source:
     git:
-      url: ssh://git@github.com/rabeyta/tap-multi-module-testing.git
+      url: https://github.com/rabeyta/tap-multi-module-testing.git
       ref:
         branch: main
