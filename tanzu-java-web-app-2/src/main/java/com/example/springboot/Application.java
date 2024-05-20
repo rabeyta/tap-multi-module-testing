@@ -28,7 +28,7 @@ public class Application {
 			for (String beanName : beanNames) {
 				System.out.println(beanName);
 			}
-			System.out.println("a change");
+			System.out.println("another change");
 		};
 	}
 	

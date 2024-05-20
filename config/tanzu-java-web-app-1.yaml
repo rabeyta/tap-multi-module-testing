@@ -3,7 +3,7 @@ kind: Workload
 metadata:
   name: tanzu-java-web-app-1
   labels:
-    apps.tanzu.vmware.com/workload-type: web-deliverable
+    apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/language: java
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
@@ -13,9 +13,10 @@ spec:
     env:
       - name: BP_JVM_VERSION
         value: "17"
+      - name: BP_GRADLE_BUILD_ARGUMENTS
+        value: "--no-daemon -Dorg.gradle.welcome=never :tanzu-java-web-app-1:assemble"
       - name: BP_GRADLE_BUILT_MODULE
         value: "tanzu-java-web-app-1"
-
   params:
     - name: annotations
       value:
@@ -24,6 +25,9 @@ spec:
       value: github-ssh
     - name: iterate
       value: "true"
+    - name: testing_pipeline_params
+      value:
+        module: "tanzu-java-web-app-1"
   source:
     git:
       url: ssh://git@github.com/rabeyta/tap-multi-module-testing.git
