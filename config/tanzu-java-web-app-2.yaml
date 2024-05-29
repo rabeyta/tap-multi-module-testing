@@ -11,6 +11,8 @@ metadata:
 spec:
   build:
     env:
+      - name: BP_NATIVE_IMAGE
+        value: "false"
       - name: BP_JVM_VERSION
         value: "17"
       - name: BP_GRADLE_BUILT_MODULE

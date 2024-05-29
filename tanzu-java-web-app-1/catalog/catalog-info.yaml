@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: vscode-priv-tanzu-java-web-app
-  description: Tanzu Java Web App
+  name: tanzu-java-web-app-1
+  description: Multi-Module Tanzu Java Web App
   tags:
     - app-accelerator
     - java
@@ -10,7 +10,7 @@ metadata:
     - web
     - tanzu
   annotations:
-    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=vscode-priv-tanzu-java-web-app'
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=tanzu-java-web-app-1'
 spec:
   type: service
   lifecycle: experimental

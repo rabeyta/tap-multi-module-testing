@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class HelloController {
 
-	@RequestMapping("/")
-	public String index() {
-		return "Greetings from Spring Boot + Tanzu! - app2";
-	}
+    @RequestMapping("/")
+    public String index() {
+        String someValue = "updated";
+        return "Greetings from Spring Boot + Tanzu! - app 2\n\n" + "value from variable: " + someValue;
+    }
 
 }
