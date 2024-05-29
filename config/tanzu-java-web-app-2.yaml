@@ -8,6 +8,8 @@ metadata:
     apps.tanzu.vmware.com/has-tests: "true"
     apps.tanzu.vmware.com/auto-configure-actuators: "true"
     app.kubernetes.io/part-of: tanzu-java-web-app-2
+    apps.abeyta.me/multi-module: "true"
+    apps.abeyta.me/module-detector: "java"
 spec:
   build:
     env:
