@@ -10,7 +10,7 @@ affectedModuleDetector {
     logFilename = "output.log"
     logFolder = "${project.rootDir}/affectedModuleDetector"
     specifiedBranch = "main"
-    compareFrom = "SpecifiedBranchCommitMergeBase" //default is PreviousCommit
+    compareFrom = "PreviousCommit" //default is PreviousCommit
     ignoredFiles = setOf(".*\\.md", ".*\\.txt", ".*README")
     includeUncommitted = true
     customTasks = setOf(
