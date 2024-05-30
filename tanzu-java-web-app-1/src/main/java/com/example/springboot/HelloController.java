@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class HelloController {
 
-	private static final String someConst = "5th";
+	private static final String someConst = "6th";
 	@RequestMapping("/")
 	public String index() {
 		return "Greetings from Spring Boot + Tanzu! - app 1" + " some const of " + someConst;
