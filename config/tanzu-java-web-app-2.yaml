@@ -17,10 +17,10 @@ spec:
         value: "false"
       - name: BP_JVM_VERSION
         value: "17"
-      - name: BP_GRADLE_BUILT_MODULE
-        value: "tanzu-java-web-app-2"
       - name: BP_GRADLE_BUILD_ARGUMENTS
         value: "--no-daemon -Dorg.gradle.welcome=never :tanzu-java-web-app-2:assemble"
+      - name: BP_GRADLE_BUILT_MODULE
+        value: "tanzu-java-web-app-2"
   params:
     - name: annotations
       value:
