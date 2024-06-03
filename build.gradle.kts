@@ -24,7 +24,6 @@ tasks.register<AffectedTask>("affected") {
     description = "print all affected subprojects due to code changes"
 }
 
-// Define Custom Task
 open class AffectedTask : DefaultTask() {
     @TaskAction
     fun printAffected() {
