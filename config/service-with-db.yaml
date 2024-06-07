@@ -1,0 +1,60 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: tanzu-java-web-app
+  labels:
+    apps.tanzu.vmware.com/workload-type: server-with-db
+    apps.tanzu.vmware.com/language: java
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/auto-configure-actuators: "true"
+    app.kubernetes.io/part-of: tanzu-java-web-app
+spec:
+  build:
+    env:
+      - name: BP_NATIVE_IMAGE
+        value: "false"
+      - name: BP_JVM_VERSION
+        value: "17"
+      - name: BP_GRADLE_BUILD_ARGUMENTS
+        value: "--no-daemon -Dorg.gradle.welcome=never :tanzu-java-web-app-1:assemble"
+      - name: BP_GRADLE_BUILT_MODULE
+        value: "tanzu-java-web-app-1"
+  params:
+    - name: annotations
+      value:
+        autoscaling.knative.dev/minScale: "1"
+    - name: gitops_ssh_secret
+      value: github-basic-auth
+    - name: iterate
+      value: "true"
+    - name: testing_pipeline_params
+      value:
+        module: "tanzu-java-web-app-1"
+    - name: db_testing_pipeline_params
+      value:
+        module: "tanzu-java-web-app-2"
+    - name: detect_module
+      value: "tanzu-java-web-app"
+    - name: db_build
+      value:
+        env:
+          - name: BP_NATIVE_IMAGE
+            value: "false"
+          - name: BP_JVM_VERSION
+            value: "17"
+          - name: BP_GRADLE_BUILD_ARGUMENTS
+            value: "--no-daemon -Dorg.gradle.welcome=never :tanzu-java-web-app-2:assemble"
+          - name: BP_GRADLE_BUILT_MODULE
+            value: "tanzu-java-web-app-2"
+    - name: db_env
+      value:
+        env:
+          - name: ENV_1
+            value: "bob"
+          - name: ENV_2
+            value: "joe"
+  source:
+    git:
+      url: https://github.com/rabeyta/tap-multi-module-testing.git
+      ref:
+        branch: main

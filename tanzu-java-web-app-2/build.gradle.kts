@@ -37,6 +37,6 @@ tasks.named<Jar>("jar") {
 
 tasks.register("printProjectName") {
     doLast {
-        println("app-2")
+        println("tanzu-java-web-app-2")
     }
 }
